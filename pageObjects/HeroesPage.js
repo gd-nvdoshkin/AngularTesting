@@ -40,4 +40,8 @@ export default class HeroesPage extends BasePage {
         let hero = await element(by.cssContainingText('.hero-element', name));
         expect(await hero.isDisplayed()).equal(true);
     }
+
+    async getAllVisibleHeroNames() {
+        return await $$('.hero-element').map(elem => elem.getText());
+    }
 }

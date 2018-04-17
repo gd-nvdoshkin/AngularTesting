@@ -32,5 +32,11 @@ describe('Check Heroes functionality', () => {
         await heroesPage.checkDisplayedCorrect();
         await heroesPage.checkHeroExists(name)
     });
+
+    it('Check all heroes list contains 15 Magneta', async () => {
+        let heroesPage = new HeroesPage(10);
+        await heroesPage.goToHeroes();
+        expect(heroesPage.getAllVisibleHeroNames()).toContain('15 Magneta');
+    });
 });
 
